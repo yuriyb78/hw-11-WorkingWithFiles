@@ -16,7 +16,7 @@ public class WorkWithZipArhive {
 
     public static String extractedFileName;
 
-    public WorkWithZipArhive zipExtractFiles(String fileExtention) {
+    public void zipExtractFiles(String fileExtention) {
         try (InputStream is = cl.getResourceAsStream("files/arhiv_for_test.zip");
              ZipInputStream zis = new ZipInputStream(is)) {
             ZipEntry entry;
@@ -34,12 +34,12 @@ public class WorkWithZipArhive {
         catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return this;
+
     }
 
-    public static void deleteFileByName(String fileNameForDelete) {
-        File file = new File(outputDirectory + fileNameForDelete);
-        file.delete();
+    public void deleteFileByName(File fileNameForDelete) {
+        fileNameForDelete.delete();
+
     }
 
 }
