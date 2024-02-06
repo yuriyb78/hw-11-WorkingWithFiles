@@ -13,7 +13,7 @@ public class WorkWithFilesFromArhiveTest {
 
     WorkWithZipArhive workWithZipArhive = new WorkWithZipArhive();
     @Test
-    void parsingPdfFileTest() throws IOException {
+    void parsingPdfFileTest() throws Exception {
         workWithZipArhive.zipExtractFiles(".pdf");
         File fileName = new File(WorkWithZipArhive.extractedFileName);
         PDF pdf = new PDF(fileName);
@@ -23,14 +23,15 @@ public class WorkWithFilesFromArhiveTest {
     }
 
     @Test
-    void parsingXlsFileTest() throws IOException {
+    void parsingXlsFileTest() throws Exception {
         workWithZipArhive.zipExtractFiles(".xls");
         File fileName = new File(WorkWithZipArhive.extractedFileName);
         XLS xls = new XLS(fileName);
         Assertions.assertEquals("Название класса",
                 xls.excel.getSheet("Авторизация")
                         .getRow(0)
-                        .getCell(1));
+                        .getCell(1)
+                        .getStringCellValue());
         workWithZipArhive.deleteFileByName(fileName);
 
     }
