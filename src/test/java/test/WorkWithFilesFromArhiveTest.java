@@ -2,12 +2,14 @@ package test;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
+import com.opencsv.CSVReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import utils.WorkWithZipArhive;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.List;
+
 
 public class WorkWithFilesFromArhiveTest {
 
@@ -23,7 +25,7 @@ public class WorkWithFilesFromArhiveTest {
     }
 
     @Test
-    void parsingXlsFileTest() throws Exception {
+    void parsingXlsFileTest() {
         workWithZipArhive.zipExtractFiles(".xls");
         File fileName = new File(WorkWithZipArhive.extractedFileName);
         XLS xls = new XLS(fileName);
@@ -34,5 +36,17 @@ public class WorkWithFilesFromArhiveTest {
                         .getStringCellValue());
         workWithZipArhive.deleteFileByName(fileName);
 
+    }
+
+    @Test
+    void parsingCsvFileTest() throws Exception {
+        workWithZipArhive.zipExtractFiles(".csv");
+        File fileName = new File(WorkWithZipArhive.extractedFileName);
+        try (CSVReader csvReader = new CSVReader(new FileReader(fileName))) {
+            List<String[]> content = csvReader.readAll();
+            Assertions.assertArrayEquals(
+                    new String[]{"name", "phoneNumber", "email", "address", "userAgent", "hexcolor"}, content.get(0));
+        }
+        workWithZipArhive.deleteFileByName(fileName);
     }
 }
