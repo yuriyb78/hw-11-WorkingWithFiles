@@ -1,0 +1,12 @@
+{
+  "first_name": "Ivan",
+  "last_name": "Ivanov",
+  "middle_name": "Ivanovich",
+  "age": 35, 
+  "is_married": true,
+  "has_kids": false,
+  "emails": ["ivanov.i.i.@yandex-work.ru", "ivan@yandex-home.ru"],
+  "favorite_numbers": [0, 7, 42],
+  "pets": [{"type": "dog", "name": "Шарик"}, 
+			{"type": "cat", "name": "Мурлыка"}]
+}
