@@ -3,6 +3,7 @@ build/
 .idea/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/test/**/build/
+!**/src/test/resources/files/output/
 
 ### IntelliJ IDEA ###
 *.iws
@@ -38,3 +39,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
