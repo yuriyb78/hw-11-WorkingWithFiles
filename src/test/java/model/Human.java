@@ -13,7 +13,7 @@ public class Human {
     private boolean has_kids;
     private List<String> emails;
     private List<Integer> favorite_numbers;
-    private List<Pets> pets;
+    public Pets pets;
 
     public String getFirst_name() {
         return first_name;
@@ -47,7 +47,7 @@ public class Human {
         return favorite_numbers;
     }
 
-    public List<Pets> getPets() {
+    public Pets getPets() {
         return pets;
     }
 
@@ -83,7 +83,7 @@ public class Human {
         this.favorite_numbers = favorite_numbers;
     }
 
-    public void setPets(List<Pets> pets) {
+    public void setPets(Pets pets) {
         this.pets = pets;
     }
 }

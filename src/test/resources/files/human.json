@@ -7,6 +7,6 @@
   "has_kids": false,
   "emails": ["ivanov.i.i.@yandex-work.ru", "ivan@yandex-home.ru"],
   "favorite_numbers": [0, 7, 42],
-  "pets": [{"type": "dog", "name": "Шарик"}, 
-			{"type": "cat", "name": "Мурлыка"}]
+  "pets": {"type": "dog", "name": "Шарик"}
+
 }
